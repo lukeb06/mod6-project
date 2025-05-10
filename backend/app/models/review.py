@@ -9,7 +9,7 @@ class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     review = db.Column(db.String(1000), nullable=False)
-    businessId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("businesses.Id")), nullable=False)
+    businessId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("businesses.id")), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
@@ -26,6 +26,6 @@ class Review(db.Model):
             "businessId": self.businessId,
             "review": self.review,
             "stars": self.stars,
-            "id": self.created_at.isoformat(),
-            "id": self.updated_at.isoformat(),
+            "created_at": self.created_at.isoformat(),
+            "updated_at": self.updated_at.isoformat(),
         }
