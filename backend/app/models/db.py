@@ -1,4 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy # type: ignore
+from flask_sqlalchemy import SQLAlchemy
 
 import os
 environment = os.getenv("FLASK_ENV")
