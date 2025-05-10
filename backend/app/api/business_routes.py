@@ -4,7 +4,7 @@ from app.models import Business
 business_routes = Blueprint("business", __name__)
 
 
-@business_routes.route("/")
+@business_routes.route("/", methods=["GET"])
 def businesses():
     """
     Get all businesses
@@ -14,7 +14,7 @@ def businesses():
     return jsonify([b.to_dict() for b in businesses])
 
 
-@business_routes.route("/<id>")
+@business_routes.route("/<id>", methods=["GET"])
 def business(id: int):
     """
     Get a business by id
